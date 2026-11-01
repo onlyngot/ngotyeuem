@@ -1,0 +1,6 @@
+{
+  "name": "Yimeo's home",
+  "description": "A sweet aesthetic, Kawaii, and Webcore character link archive.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

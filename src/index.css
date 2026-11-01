@@ -1,0 +1,552 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=DynaPuff:wght@600;700;800&family=Mochiy+Pop+One&family=Pacifico&family=Sniglet:wght@800&family=Quicksand:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap');
+
+@keyframes bunnyJump {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1, 1);
+  }
+  20% {
+    transform: translateY(4px) scale(1.05, 0.95);
+  }
+  50% {
+    transform: translateY(-22px) rotate(-1.5deg) scale(0.96, 1.05);
+  }
+  70% {
+    transform: translateY(-12px) rotate(1.5deg) scale(0.98, 1.02);
+  }
+  85% {
+    transform: translateY(0px) scale(1.03, 0.97);
+  }
+}
+
+@keyframes floatSoft {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+@keyframes wiggleSoft {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes spinPop {
+  0% {
+    transform: scale(0.9) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.18) translateY(-20px) rotate(180deg);
+  }
+  50% {
+    transform: scale(1.05) translateY(-8px) rotate(360deg);
+  }
+  75% {
+    transform: scale(0.96) translateY(2px) rotate(360deg);
+  }
+  100% {
+    transform: scale(0.9) rotate(360deg);
+  }
+}
+
+@keyframes wobbleSpin {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(-12deg) scale(1.08);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.12);
+  }
+  75% {
+    transform: rotate(348deg) scale(1.04);
+  }
+}
+
+@keyframes bounceTilt {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  30% {
+    transform: translateY(-16px) rotate(-8deg) scale(1.08);
+  }
+  60% {
+    transform: translateY(-6px) rotate(6deg) scale(1.02);
+  }
+  85% {
+    transform: translateY(1px) rotate(-2deg) scale(0.99);
+  }
+}
+
+.animate-bunny-jump {
+  animation: bunnyJump 1.6s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.animate-float-soft {
+  animation: floatSoft 3.2s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulseSoft 2.8s ease-in-out infinite;
+}
+
+.animate-wiggle-soft {
+  animation: wiggleSoft 1.8s ease-in-out infinite;
+}
+
+.animate-spin-pop {
+  animation: spinPop 2.2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+}
+
+.animate-wobble-spin {
+  animation: wobbleSpin 3s ease-in-out infinite;
+}
+
+.animate-bounce-tilt {
+  animation: bounceTilt 1.8s ease-in-out infinite;
+}
+
+/* ========================================================
+   CRITICAL Content Protection (Anti-Theft) Enforced:
+   Users cannot download, drag, save, or copy images/assets
+   ======================================================== */
+img, svg, canvas, [data-protected="true"] {
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  -webkit-user-drag: none !important;
+  user-drag: none !important;
+  -webkit-touch-callout: none !important;
+  pointer-events: auto;
+}
+
+@media print {
+  body {
+    display: none !important;
+  }
+}
+
+/* Poetic & Dreamy Font Utilities */
+.font-poetic {
+  font-family: 'Comfortaa', 'Quicksand', cursive, sans-serif;
+}
+
+.font-dreamy {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-handwriting {
+  font-family: 'Caveat', 'Dancing Script', cursive, sans-serif;
+}
+
+/* Palette: 莓莓粉荔 (Strawberry Lychee Pink)
+   #ffdde7: Soft strawberry cream pink
+   #fffff2: Creamy ivory white / warm milk
+   #ffe0df: Soft lychee peach pink
+   #ffc2d1: Accent strawberry pink
+   #ffb3c6: Border & accent tone
+   #8d2d48: Deep rich strawberry rose text
+*/
+
+@font-face {
+  font-family: 'Biscuit Glitch';
+  src: url('/fonts/BiscuitGlitch.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Try Happiness';
+  src: url('/fonts/TryHappiness.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Try-Happiness';
+  src: url('/fonts/TryHappiness.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pulang';
+  src: url('/fonts/Pulang.ttf') format('truetype'),
+       url('/fonts/Pulang.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Anja Eliane';
+  src: url('/fonts/AnjaEliane.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rhaikane';
+  src: url('/fonts/RhaikaneDemo.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Loverine';
+  src: url('/fonts/LoverineVN.otf') format('opentype'),
+       url('/fonts/Loverine.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@keyframes rippleExpand {
+  0% {
+    transform: translate(-50%, -50%) scale(0.1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.8);
+    opacity: 0;
+  }
+}
+
+.animate-ripple-expand {
+  animation: rippleExpand 0.75s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+:root {
+  --theme-primary: #d45d79;
+  --theme-secondary: #8d2d48;
+  --theme-accent: #ff8fab;
+  --theme-accent-hover: #e56b82;
+  --theme-bg: #ffdde7;
+  --theme-card-bg: #fffff2;
+  --theme-light-bg: #ffe0df;
+  --theme-border: #ffb3c6;
+  --theme-border-light: #ffc2d1;
+  --theme-shadow: rgba(255, 179, 198, 0.45);
+  --theme-bubble-fill: #ffaac4;
+  --theme-bubble-shadow: #eb8ba6;
+  --theme-placeholder: rgba(212, 93, 121, 0.65);
+
+  --color-strawberry-cream: var(--theme-bg, #ffdde7);
+  --color-milky-white: var(--theme-card-bg, #fffff2);
+  --color-lychee-peach: var(--theme-light-bg, #ffe0df);
+  --color-accent-pink: var(--theme-border-light, #ffc2d1);
+  --color-border-pink: var(--theme-border, #ffb3c6);
+  --color-deep-rose: var(--theme-secondary, #8d2d48);
+}
+
+body {
+  font-family: 'Quicksand', 'Nunito', system-ui, -apple-system, sans-serif;
+  background-color: var(--theme-bg, #ffdde7);
+  background-image: url('/background.svg');
+  background-repeat: repeat;
+  background-size: 80px 80px;
+  min-height: 100vh;
+  color: var(--theme-secondary, #8d2d48);
+  letter-spacing: 0.015em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Cute rounded utility class - soft, slender, rounded */
+.font-cute {
+  font-family: 'Quicksand', 'Nunito', system-ui, -apple-system, sans-serif;
+}
+
+/* "ngọt." title next to avatar in navbar - using DaFont's Anja Eliane with crisp white border */
+.font-anja-eliane {
+  font-family: 'Anja Eliane', cursive, sans-serif;
+  color: var(--theme-bubble-fill, #ff9ebb);
+  -webkit-text-stroke: 3.5px #ffffff;
+  paint-order: stroke fill;
+  filter: drop-shadow(0 2.5px 0px var(--theme-bubble-shadow, #eb8ba6)) drop-shadow(0 4px 6px rgba(0, 0, 0, 0.12));
+  letter-spacing: 0.04em;
+  display: inline-block;
+  transform: rotate(-0.5deg);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.font-anja-eliane:hover {
+  transform: scale(1.05) rotate(0.5deg);
+  filter: drop-shadow(0 3px 0px var(--theme-bubble-shadow, #e07292)) drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
+}
+
+/* "little by little." title in the center (HomePage) - using DaFont's Try-Happiness */
+.font-try-happiness {
+  font-family: 'Try Happiness', 'Try-Happiness', cursive, sans-serif !important;
+  letter-spacing: 0.08em;
+}
+
+.font-pulang {
+  font-family: 'Pulang', cursive, sans-serif;
+  color: var(--theme-primary, #d45d79);
+  transition: color 0.3s ease;
+}
+
+/* "Just a minute" title on Welcome Screen - using DaFont's Rhaikane */
+.font-rhaikane {
+  font-family: 'Rhaikane', cursive, sans-serif;
+  letter-spacing: 0.03em;
+}
+
+/* "Bé yêu..." romantic calligraphy text on Welcome Screen - using DaFont's Pacifico with native Vietnamese marks */
+.font-pacifico {
+  font-family: 'Pacifico', cursive, sans-serif !important;
+  letter-spacing: 0.02em;
+}
+
+.font-loverine {
+  font-family: 'Loverine', cursive, sans-serif;
+  letter-spacing: 0.03em;
+}
+
+/* Dynamic Theme Utility Classes */
+.theme-navbar {
+  background-color: var(--theme-card-bg, #fffff2);
+  border-color: var(--theme-border-light, #ffc2d1);
+  box-shadow: 0 8px 20px var(--theme-shadow, rgba(255, 194, 209, 0.4));
+}
+
+.theme-card {
+  background-color: var(--theme-card-bg, #fffff2);
+  border-color: var(--theme-border, #ffb3c6);
+}
+
+.theme-tag {
+  background-color: var(--theme-bg, #ffdde7);
+  color: var(--theme-secondary, #8d2d48);
+  border-color: var(--theme-border, #ffb3c6);
+}
+
+/* Ensure navigation text items Home, Lover, Add are completely borderless, outline-less, without pill background or text-stroke */
+.nav-clean-link {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  -webkit-text-stroke: 0 !important;
+  text-decoration: none !important;
+}
+.nav-clean-link:hover,
+.nav-clean-link:focus,
+.nav-clean-link:active {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* ========================================================
+   GLOBAL THEME ENGINE: DYNAMICALLY OVERRIDE TAILWIND COLORS
+   This ensures all modals (Chỉnh sửa ảnh), avatar frames,
+   text colors, mascot glows, welcome screens, and buttons
+   instantly change to the admin's chosen color palette!
+   ======================================================== */
+
+/* Text Colors */
+[class*="text-[#8d2d48]"], .text-\[\#8d2d48\] {
+  color: var(--theme-secondary, #8d2d48) !important;
+}
+[class*="text-[#d45d79]"], .text-\[\#d45d79\] {
+  color: var(--theme-primary, #d45d79) !important;
+}
+[class*="text-[#b33959]"], .text-\[\#b33959\] {
+  color: var(--theme-primary, #b33959) !important;
+}
+[class*="text-[#ff8fab]"], .text-\[\#ff8fab\] {
+  color: var(--theme-accent, #ff8fab) !important;
+}
+[class*="text-[#7a1f38]"], .text-\[\#7a1f38\] {
+  color: var(--theme-secondary, #7a1f38) !important;
+}
+[class*="text-[#5c1328]"], .text-\[\#5c1328\] {
+  color: var(--theme-secondary, #5c1328) !important;
+}
+[class*="hover:text-[#5c1328]"]:hover {
+  color: var(--theme-secondary, #5c1328) !important;
+}
+[class*="hover:text-[#8d2d48]"]:hover {
+  color: var(--theme-secondary, #8d2d48) !important;
+}
+
+/* Placeholder and Search Input text colors */
+input::placeholder,
+textarea::placeholder,
+[class*="placeholder-"]::placeholder,
+[class*="placeholder-"] {
+  color: var(--theme-placeholder, rgba(212, 93, 121, 0.65)) !important;
+  opacity: 1 !important;
+}
+
+[class*="text-[#d88c9f]"] {
+  color: var(--theme-placeholder, rgba(212, 93, 121, 0.65)) !important;
+}
+
+/* Solid Background Colors */
+[class*="bg-[#ffdde7]"]:not([class*="/"]), .bg-\[\#ffdde7\] {
+  background-color: var(--theme-bg, #ffdde7) !important;
+}
+[class*="bg-[#ffe0df]"]:not([class*="/"]), .bg-\[\#ffe0df\] {
+  background-color: var(--theme-light-bg, #ffe0df) !important;
+}
+[class*="bg-[#fffff2]"]:not([class*="/"]), .bg-\[\#fffff2\] {
+  background-color: var(--theme-card-bg, #fffff2) !important;
+}
+[class*="bg-[#ffc2d1]"]:not([class*="/"]), .bg-\[\#ffc2d1\] {
+  background-color: var(--theme-border-light, #ffc2d1) !important;
+}
+[class*="bg-[#ffb3c6]"]:not([class*="/"]), .bg-\[\#ffb3c6\] {
+  background-color: var(--theme-border, #ffb3c6) !important;
+}
+[class*="bg-[#ff8fab]"]:not([class*="/"]), .bg-\[\#ff8fab\] {
+  background-color: var(--theme-accent, #ff8fab) !important;
+}
+[class*="bg-[#ff9ebb]"]:not([class*="/"]), .bg-\[\#ff9ebb\] {
+  background-color: var(--theme-bubble-fill, #ff9ebb) !important;
+}
+[class*="bg-[#ffd4e0]"]:not([class*="/"]), .bg-\[\#ffd4e0\] {
+  background-color: var(--theme-light-bg, #ffd4e0) !important;
+}
+
+/* Translucent & Opacity Background Colors */
+[class*="bg-[#ffc2d1]/"] {
+  background-color: var(--theme-border-glow, rgba(255, 194, 209, 0.55)) !important;
+}
+[class*="bg-[#ffe0df]/"] {
+  background-color: color-mix(in srgb, var(--theme-light-bg, #ffe0df) 65%, transparent) !important;
+}
+[class*="bg-[#ffdde7]/"] {
+  background-color: color-mix(in srgb, var(--theme-bg, #ffdde7) 70%, transparent) !important;
+}
+[class*="bg-[#fffff2]/"] {
+  background-color: color-mix(in srgb, var(--theme-card-bg, #fffff2) 90%, transparent) !important;
+}
+
+/* Hover Backgrounds */
+[class*="hover:bg-[#ffdde7]"]:hover {
+  background-color: var(--theme-bg, #ffdde7) !important;
+}
+[class*="hover:bg-[#ffe0df]"]:hover {
+  background-color: var(--theme-light-bg, #ffe0df) !important;
+}
+
+/* Solid Border Colors */
+[class*="border-[#ffb3c6]"], .border-\[\#ffb3c6\] {
+  border-color: var(--theme-border, #ffb3c6) !important;
+}
+[class*="border-[#ffc2d1]"]:not([class*="/"]), .border-\[\#ffc2d1\] {
+  border-color: var(--theme-border-light, #ffc2d1) !important;
+}
+[class*="border-[#ff8fab]"], .border-\[\#ff8fab\] {
+  border-color: var(--theme-accent, #ff8fab) !important;
+}
+[class*="border-[#f888a7]"], .border-\[\#f888a7\] {
+  border-color: var(--theme-border, #f888a7) !important;
+}
+[class*="border-[#e56b82]"], .border-\[\#e56b82\] {
+  border-color: var(--theme-accent-hover, #e56b82) !important;
+}
+[class*="border-[#ffc2d1]/"] {
+  border-color: color-mix(in srgb, var(--theme-border-light, #ffc2d1) 75%, transparent) !important;
+}
+
+/* Gradient Buttons & Elements */
+[class*="from-[#ff9ebb]"][class*="to-[#ff8fab]"] {
+  background-image: linear-gradient(to right, var(--theme-bubble-fill, #ff9ebb), var(--theme-accent, #ff8fab)) !important;
+}
+[class*="from-[#ff8fab]"][class*="to-[#e56b82]"] {
+  background-image: linear-gradient(to right, var(--theme-accent, #ff8fab), var(--theme-accent-hover, #e56b82)) !important;
+}
+[class*="hover:from-[#ff8fab]"]:hover {
+  background-image: linear-gradient(to right, var(--theme-accent, #ff8fab), var(--theme-accent-hover, #e57390)) !important;
+}
+[class*="hover:from-[#ff7b99]"]:hover {
+  background-image: linear-gradient(to right, var(--theme-accent-hover, #e56b82), var(--theme-primary, #d4556f)) !important;
+}
+
+/* Sliders, Ring & Accent Colors */
+[class*="accent-[#ff8fab]"], input[type="range"] {
+  accent-color: var(--theme-accent, #ff8fab) !important;
+}
+
+/* Shadow Glows */
+[class*="rgba(255,194,209"], [class*="rgba(255,179,198"], [class*="rgba(255,160,185"] {
+  box-shadow: 0 10px 28px var(--theme-shadow, rgba(255, 194, 209, 0.45)) !important;
+}
+
+/* Loading Bar Animation Effects (Ảnh 8) */
+@keyframes candyStripes {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 0;
+  }
+}
+
+.animate-candy-stripes {
+  background-size: 24px 24px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0.35) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  animation: candyStripes 1s linear infinite;
+}
+
+@keyframes shimmerSlide {
+  0% {
+    transform: translateX(-150%);
+  }
+  100% {
+    transform: translateX(250%);
+  }
+}
+
+.animate-shimmer-sweep {
+  animation: shimmerSlide 1.8s ease-in-out infinite;
+}
+
+@keyframes runnerBounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.08);
+  }
+}
+
+.animate-runner-bounce {
+  animation: runnerBounce 0.55s ease-in-out infinite;
+}
+
