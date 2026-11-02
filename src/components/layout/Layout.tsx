@@ -27,6 +27,7 @@ import {
   clearUserRole,
   UserRole,
 } from '@/src/data/authRoleStorage';
+import { initAutomatedSync } from '@/src/utils/syncManager';
 
 export default function Layout() {
   const navigate = useNavigate();
@@ -88,6 +89,15 @@ export default function Layout() {
       window.removeEventListener('contextmenu', handleContextMenu, { capture: true });
       window.removeEventListener('dragstart', handleDragStart, { capture: true });
       window.removeEventListener('keydown', handleKeyDown, { capture: true });
+    };
+  }, []);
+
+  // Automated Cross-Device Interface Synchronization:
+  // Tự động tải giao diện mới nhất của Admin trên mọi thiết bị và lắng nghe các thay đổi
+  useEffect(() => {
+    const cleanupSync = initAutomatedSync();
+    return () => {
+      cleanupSync();
     };
   }, []);
 

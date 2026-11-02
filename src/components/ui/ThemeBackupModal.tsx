@@ -9,6 +9,7 @@ import {
   resetToDefaultUI,
 } from '@/src/data/backupStorage';
 import { getActivePalette } from '@/src/data/paletteStorage';
+import { pushCurrentConfigToServer } from '@/src/utils/syncManager';
 
 interface ThemeBackupModalProps {
   isOpen: boolean;
@@ -20,6 +21,7 @@ export default function ThemeBackupModal({ isOpen, onClose, onApplied }: ThemeBa
   const [snapshots, setSnapshots] = useState<ThemeSnapshot[]>([]);
   const [snapshotName, setSnapshotName] = useState('');
   const [statusMsg, setStatusMsg] = useState<string | null>(null);
+  const [isSyncing, setIsSyncing] = useState(false);
   const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null);
   const [confirmClearAll, setConfirmClearAll] = useState(false);
   const [confirmResetDefault, setConfirmResetDefault] = useState(false);
@@ -57,6 +59,20 @@ export default function ThemeBackupModal({ isOpen, onClose, onApplied }: ThemeBa
       setSnapshotName('');
     } catch {
       showNotification('Không thể lưu giao diện. Bộ nhớ trình duyệt có thể đã đầy.');
+    }
+  };
+
+  const handleForceSyncNow = async () => {
+    setIsSyncing(true);
+    try {
+      const ok = await pushCurrentConfigToServer();
+      if (ok) {
+        showNotification('☁️ Đã đồng bộ giao diện lên hệ thống! Mọi thiết bị khác sẽ tự động nhận giao diện này.');
+      } else {
+        showNotification('Không thể đồng bộ. Vui lòng thử lại sau.');
+      }
+    } finally {
+      setIsSyncing(false);
     }
   };
 
@@ -119,6 +135,30 @@ export default function ThemeBackupModal({ isOpen, onClose, onApplied }: ThemeBa
 
         {/* Modal Body */}
         <div className="p-4 sm:p-6 overflow-y-auto space-y-5 text-xs sm:text-sm flex-1">
+          {/* Automated Cross-Device Sync Status Banner */}
+          <div className="p-3.5 rounded-2xl bg-gradient-to-r from-emerald-50 to-pink-50 border border-emerald-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs shadow-2xs">
+            <div className="flex items-center gap-2.5">
+              <span className="text-xl">☁️</span>
+              <div>
+                <span className="font-black text-emerald-800 block">
+                  Tự động hóa hiển thị đa thiết bị (Active)
+                </span>
+                <span className="text-[11px] text-[#8d2d48]/80 block font-medium">
+                  Mọi tùy chỉnh giao diện của bạn đều được đồng bộ và tự động hiển thị trên điện thoại, máy tính và mọi thiết bị khác!
+                </span>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={handleForceSyncNow}
+              disabled={isSyncing}
+              className="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-bold text-xs shadow-xs transition cursor-pointer flex items-center gap-1.5 shrink-0 disabled:opacity-50"
+            >
+              <span>{isSyncing ? '⏳' : '🔄'}</span>
+              <span>{isSyncing ? 'Đang đồng bộ...' : 'Đồng bộ ngay'}</span>
+            </button>
+          </div>
+
           {/* Explanation Banner */}
           <div className="p-3.5 rounded-2xl bg-[#ffe0df]/50 border border-[#ffb3c6] text-xs text-[#8d2d48] leading-relaxed">
             🎀 <strong>Tính năng lưu trữ giao diện:</strong> Cho phép bạn lưu lại toàn bộ các thiết lập tùy biến vừa chỉnh (palette màu sắc, phụ kiện trang trí ảnh, vật thể rơi, hiệu ứng chạm click, icon web, v.v.). Bạn có thể lưu nhiều phong cách khác nhau và chuyển đổi qua lại bất kỳ lúc nào!
